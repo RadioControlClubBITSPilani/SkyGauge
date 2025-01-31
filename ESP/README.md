@@ -1,8 +1,8 @@
 # This is where the code for the esp itself should be
 
-ULGL is the graphics framework that ive written for you guys to fiddle with so far ask me any questions
+ULGL is the graphics framework that ive written for you guys to fiddle with
 
-Run the example code
-Go through the header files
-See how everything works
-Ask me if you have any questions
+1. Run the example code
+2. Go through the header files
+3. See how everything works
+4. Ask me if you have any questions

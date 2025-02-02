@@ -40,7 +40,7 @@ def main():
             )
             dpg.add_button(
                 label="Log Serial",
-                callback=Core.log_serial
+                callback=GUI.serial_monitor
             )
 
     log = GUI.Logger()

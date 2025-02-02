@@ -15,9 +15,10 @@ se = serial.Serial('/dev/ttyUSB0')
 se.baudrate = 115200
 
 
-def log_serial():
-    while True:
-
+def get_serial():
         # readline only works when your data from the esp has \n in it
-        logger.info(se.readline())
+    data = se.readline()
+    data = float(data) % 100
+    logger.info(data)
+    return data
 

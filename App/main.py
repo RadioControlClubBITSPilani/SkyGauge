@@ -9,7 +9,7 @@ import GUI
 logger = logging.getLogger("Core.Main")
 def main():
     dpg.create_context()
-    dpg.create_viewport(title="DoPy")
+    dpg.create_viewport(title="SkyGauge")
     core_logger = logging.getLogger("Core")
     gui_logger = logging.getLogger("GUI")
     core_logger.setLevel(logging.DEBUG)

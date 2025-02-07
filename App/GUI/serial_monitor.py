@@ -20,7 +20,7 @@ def update_plot():
 def serial_monitor():
     # dog shit
     with dpg.window(pos=(10,10)):
-        with dpg.plot(label="Dog Shit Serial Monitor", height=400, width=500):
+        with dpg.plot(label="Really Really Really Dog Shit Serial Monitor", height=400, width=500):
             dpg.add_plot_axis(dpg.mvXAxis, label="x", tag="xaxis")
             dpg.add_plot_axis(dpg.mvYAxis, label="y", tag="yaxis")
             dpg.add_line_series(data_x, data_y, tag='line', parent="yaxis")

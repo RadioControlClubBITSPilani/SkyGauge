@@ -5,9 +5,10 @@
 #include "driver/gpio.h"
 #include "sdkconfig.h"
 #include "esp_log.h"
+#include "vvm_interface.h"
 
-#define ECHO_TEST_TXD 17
-#define ECHO_TEST_RXD 16
+#define ECHO_TEST_TXD 27
+#define ECHO_TEST_RXD 25
 #define ECHO_TEST_RTS (UART_PIN_NO_CHANGE)
 #define ECHO_TEST_CTS (UART_PIN_NO_CHANGE)
 
@@ -51,7 +52,7 @@ static void read_bullshit(void *arg)
     }
 }
 
-void start_echo_task()
+void start_bullshit_task()
 {
     xTaskCreate(read_bullshit, "uart_echo_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 }

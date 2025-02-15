@@ -1,6 +1,6 @@
 #ifndef VVM_INTERFACE 
 #define VVM_INTERFACE
 
-void start_echo_task();
+void start_bullshit_task();
 
 #endif

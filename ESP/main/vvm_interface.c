@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+#include "freertos/idf_additions.h"
+#include "freertos/queue.h"
 #include "driver/uart.h"
-#include "driver/gpio.h"
-#include "sdkconfig.h"
-#include "esp_log.h"
+#include "portmacro.h"
 #include "vvm_interface.h"
 
 #define ECHO_TEST_TXD 27
@@ -16,11 +15,9 @@
 #define ECHO_UART_BAUD_RATE 9600
 #define ECHO_TASK_STACK_SIZE 3072
 
-static const char *TAG = "UART TEST";
-
 #define BUF_SIZE (1024)
 
-static void read_bullshit(void *arg)
+void read_uart_data(void* Queue)
 {
     /* Configure parameters of an UART driver,
      * communication pins and install the driver */
@@ -44,15 +41,9 @@ static void read_bullshit(void *arg)
     while (1) {
         // Read data from the UART
         int len = uart_read_bytes(ECHO_UART_PORT_NUM, data, (BUF_SIZE - 1), 20 / portTICK_PERIOD_MS);
-        // Write data back to the UART
         if (len) {
             data[len] = '\0';
-            ESP_LOGI(TAG, "Recv str: %s", (char *) data);
+            xQueueSend(*(QueueHandle_t *)Queue, data, 0);
         }
     }
-}
-
-void start_bullshit_task()
-{
-    xTaskCreate(read_bullshit, "uart_echo_task", ECHO_TASK_STACK_SIZE, NULL, 10, NULL);
 }
